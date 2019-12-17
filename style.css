@@ -1,0 +1,19 @@
+#container {
+    display: flex;
+
+}
+
+.column {
+    border: 5px solid black;
+    width: 100px;
+    height: 600px;
+    flex-direction: column;
+    background-color: yellow;
+}
+
+.row {
+    border: 5px solid black;
+    border-radius: 100%;
+    height: 90px;
+    background-color: white;
+}
