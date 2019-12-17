@@ -1,5 +1,18 @@
 //Lori Henderson (PM), Michael Byfield, Jordan Haagenson, Cory Schlaudecker
 
+//Breakdown of Steps for project:
+
+    //--  Make div columns and rows (done)
+    //--  Create array for slot holes for disks (done)
+    //--  Create CSS selector elements for columns, rows, container (done)
+    //--  Create clickhandler for columns
+            //--  Display red or black disk
+            //-- Alternate between players
+            //-- Keep track of what color disk is in which position in the board
+    //--  Create win conditions for vertical, horizontal and diagonal (4 in a row - same color)
+    //--  Make sure no more than 6 disks are placed in a column
+
+
 // If you are unsure how to get started, here are some incremental milestones:
 
 // Display a red or black disc.
