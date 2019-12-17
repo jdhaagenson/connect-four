@@ -27,10 +27,32 @@ connectFour = [
 
 playerBlack = "B"
 playerRed = "R"
-
+selected = null
 //click handler:
-let columns = document.querySelector(".column")
-let rows = document.querySelector(".row")
+let column1 = document.getElementById('1')
+let column2 = document.getElementById('2')
+let column3 = document.getElementById('3')
+let column4 = document.getElementById('4')
+let column5 = document.getElementById('5')
+let column6 = document.getElementById('6')
+let column7 = document.getElementById('7')
+
+const addDiskToColumn = (event) => {
+    if (selected == null) {
+        console.log(event.currentTarget.id)
+    if (event.currentTarget.id==column1) {
+
+    }
+    }
+
+}
+column1.addEventListener('click', addDiskToColumn)
+column2.addEventListener('click', addDiskToColumn)
+column3.addEventListener('click', addDiskToColumn)
+column4.addEventListener('click', addDiskToColumn)
+column5.addEventListener('click', addDiskToColumn)
+column6.addEventListener('click', addDiskToColumn)
+column7.addEventListener('click', addDiskToColumn)
 
 
 
