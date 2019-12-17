@@ -15,3 +15,30 @@
 // Check whether the last disc added completed four-in-a-row horizontally.
 // Check whether the last disc added completed four-in-a-row on either an upward- or downward-sloping diagonal.
 
+//create array to represent the board/:
+connectFour = [
+    "OOOOOOO",
+    "OOOOOOO",
+    "OOOOOOO",
+    "OOOOOOO",
+    "OOOOOOO",
+    "OOOOOOO"
+]
+
+playerBlack = "B"
+playerRed = "R"
+
+//click handler:
+let columns = document.querySelector(".column")
+let rows = document.querySelector(".row")
+
+
+
+//win conditions:
+
+//vertical win:
+
+//horizontal win:
+
+//diagonal win:
+
