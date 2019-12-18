@@ -30,12 +30,13 @@
 
 //create array to represent the board/:
 connectFour = [
-    "OOOOOOO",
-    "OOOOOOO",
-    "OOOOOOO",
-    "OOOOOOO",
-    "OOOOOOO",
-    "OOOOOOO"
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+    ['','','','','','',''],
+
 ]
 
 playerBlack = "B"
