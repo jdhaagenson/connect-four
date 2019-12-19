@@ -95,32 +95,35 @@ function winTie() {
         columnIndex++;
     }
 
-function createWin(message) {
-    let winMessage = document.createElement('div')
+function notify(message) {
+    let endMessage = document.createElement('div')
     let page = document.getElementById('container')
-    winMessage.innerText = message
-    page.appendChild(winMessage)
-    return winMessage
+    endMessage.innerText = message
+    page.appendChild(endMessage)
+    return endMessage
 }
 
-function winNotify() {
+function notifyWin() {
     switch(currentPlayer) {
         case 'red':
             let win = "RED WINS!"
-            createWin(win)
+            notify(win)
             break;
         case 'black':
             let win = "BLACK WINS!"
-            createWin(win)
+            notify(win)
             break;
         case 'default':
             let win = "Win was accidentally triggered"
-            createWin(win)
+            notify(win)
             break;
     }
     location.reload();
 }
-
+function notifyTie() {
+    let notification = "It's a Tie! Try Again."
+    notify(notification)
+}
 
 function checkForWin() {
     // console.log("Running checkForWin");
@@ -132,9 +135,13 @@ function checkForWin() {
     if (condition === null) {
         console.log("next player's turn")
     } else if (condition === 'win') {
-        console.log("You Win!")
-        let winDiv = document.createElement('div')
-        winDiv.innerText = currentPlayer +"Wins!"
+        console.log("Win")
+        notifyWin()
+    } else if (condition==='tie') {
+        console.log("Tie")
+        notifyTie()
+
+
     }
 }
 checkForWin()}
