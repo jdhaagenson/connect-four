@@ -26,5 +26,12 @@ body {
     background-color: white;
 }
 h1{
-    color: limegreen;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: limegreen ;
+}
+
+h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient( orange,red);
 }
