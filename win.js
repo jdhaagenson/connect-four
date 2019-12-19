@@ -1,8 +1,7 @@
 let winCount = 0;
 let rowIndex = 0;
 let columnIndex = 0;
-
-
+let condition = null
 
 function winColumn() {
     // console.log("Running winColumn");
@@ -14,7 +13,7 @@ function winColumn() {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
-            winNotify();
+            condition = 'win';
         }
         rowIndex++;
     }
@@ -31,7 +30,7 @@ function winRow() {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
-            winNotify();
+            condition = 'win';
         }
         columnIndex++;
     }
@@ -52,7 +51,7 @@ function winDiagonalRight() {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
-            winNotify();
+            condition = 'win';
         }
         columnIndex++;
         rowIndex++;
@@ -74,7 +73,7 @@ function winDiagonalLeft() {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
-            winNotify();
+            condition = 'win';
         }
         columnIndex--;
         rowIndex++;
@@ -90,17 +89,15 @@ function winTie() {
         if (gridArray[columnIndex][5] != undefined) {
             winCount++;
         } else { winCount = -1; }
-        if (winCount === 42) {
-
-            );
+        if (winCount === 7) {
+            condition = 'tie'
         }
         columnIndex++;
     }
-}
+
 
 
 function winNotify() {
-    let win =
     if (currentPlayer == 'red'){
         let win = "BLACK WINS!";
     } else if (currentPlayer == 'black'){
@@ -117,4 +114,12 @@ function checkForWin() {
     winDiagonalRight();
     winDiagonalLeft();
     winTie();
+    if (condition === null) {
+        console.log("next player's turn")
+    } else if (condition === 'win') {
+        console.log("You Win!")
+        let winDiv = document.createElement('div')
+        winDiv.innerText = currentPlayer +"Wins!"
+    }
 }
+checkForWin()}
