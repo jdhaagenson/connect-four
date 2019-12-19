@@ -43,18 +43,25 @@ playerBlack = "B"
 playerRed = "R"
 selected = null
 //click handler:
-let column1 = document.getElementById('1')
-let column2 = document.getElementById('2')
-let column3 = document.getElementById('3')
-let column4 = document.getElementById('4')
-let column5 = document.getElementById('5')
-let column6 = document.getElementById('6')
-let column7 = document.getElementById('7')
+let col1 = document.getElementById('1')
+let col2 = document.getElementById('2')
+let col3 = document.getElementById('3')
+let col4 = document.getElementById('4')
+let col5 = document.getElementById('5')
+let col6 = document.getElementById('6')
+let col7 = document.getElementById('7')
+
+const createDisk = function() {
+    let turnCounter = 0
+    let front = document.createElement('div')
+    front.classList.add('row')
+    if (turnCounter%2)==='2     bbbbbvv v'
+}
 
 const addDiskToColumn = (event) => {
     if (selected == null) {
         console.log(event.currentTarget.id)
-    if (event.currentTarget.id==column1) {
+    if (event.currentTarget.id=='1') {
 
     }
     }
