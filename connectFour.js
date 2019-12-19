@@ -5,7 +5,7 @@
     //--  Make div columns and rows (done)
     //--  Create array for slot holes for disks (done)
     //--  Create CSS selector elements for columns, rows, container (done)
-    //--  Create clickhandler for columns
+    //--  Create click handler for columns
             //--  Display red or black disk
             //-- Alternate between players
             //-- Keep track of what color disk is in which position in the board
@@ -39,9 +39,11 @@ connectFour = [
 
 ]
 
-playerBlack = "B"
-playerRed = "R"
-selected = null
+let playerBlack = "black"
+let playerRed = "red"
+let currentPlayer = playerBlack
+let currentColumn = null
+
 //click handler:
 let col1 = document.getElementById('1')
 let col2 = document.getElementById('2')
@@ -51,29 +53,40 @@ let col5 = document.getElementById('5')
 let col6 = document.getElementById('6')
 let col7 = document.getElementById('7')
 
+// turns: black on even values of turnCounter, and red on odd values of turnCounter
+let turnCounter = 0
+
 const createDisk = function() {
-    let turnCounter = 0
-    let front = document.createElement('div')
-    front.classList.add('row')
-    if (turnCounter%2)==='2     bbbbbvv v'
+    let top = document.createElement('div')
+    top.classList.add('row')
+    if (turnCounter%2===0) { //even
+        currentPlayer = PlayerBlack
+        top.classList.add('black')
+    } else if (turnCounter%2!==0) { //odd
+        currentPlayer = PlayerRed
+        top.classList.add('red')
+    }
+    return top
 }
 
 const addDiskToColumn = (event) => {
-    if (selected == null) {
+    if (currentColumn == null) {
         console.log(event.currentTarget.id)
-    if (event.currentTarget.id=='1') {
 
+    switch (event.currentTarget) {
+        case col1:
     }
     }
+    turnCounter++
 
 }
-column1.addEventListener('click', addDiskToColumn)
-column2.addEventListener('click', addDiskToColumn)
-column3.addEventListener('click', addDiskToColumn)
-column4.addEventListener('click', addDiskToColumn)
-column5.addEventListener('click', addDiskToColumn)
-column6.addEventListener('click', addDiskToColumn)
-column7.addEventListener('click', addDiskToColumn)
+col1.addEventListener('click', addDiskToColumn)
+col2.addEventListener('click', addDiskToColumn)
+col3.addEventListener('click', addDiskToColumn)
+col4.addEventListener('click', addDiskToColumn)
+col5.addEventListener('click', addDiskToColumn)
+col6.addEventListener('click', addDiskToColumn)
+col7.addEventListener('click', addDiskToColumn)
 
 
 
