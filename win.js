@@ -144,4 +144,4 @@ function checkForWin() {
 
     }
 }
-checkForWin()}
+}
