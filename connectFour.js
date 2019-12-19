@@ -116,7 +116,7 @@ const addDiskToColumn = (event) => {
             break;
     }
     turnCounter++
-
+    
 }
 col1.addEventListener('click', addDiskToColumn)
 col2.addEventListener('click', addDiskToColumn)
