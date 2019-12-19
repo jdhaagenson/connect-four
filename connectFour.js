@@ -56,14 +56,19 @@ let col7 = document.getElementById('7')
 // turns: black on even values of turnCounter, and red on odd values of turnCounter
 let turnCounter = 0
 
+let columnCounter = [5, 5, 5, 5, 5, 5, 5]
+
+const displayDisk = function(child, parent) {
+    return parent.appendChild(child)
+}
 const createDisk = function() {
     let top = document.createElement('div')
     top.classList.add('row')
     if (turnCounter%2===0) { //even
-        currentPlayer = PlayerBlack
+        currentPlayer = playerBlack
         top.classList.add('black')
     } else if (turnCounter%2!==0) { //odd
-        currentPlayer = PlayerRed
+        currentPlayer = playerRed
         top.classList.add('red')
     }
     return top
@@ -71,29 +76,39 @@ const createDisk = function() {
 
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
-        console.log(event.currentTarget.id)
+        console.log(event)
     }
     switch (event.currentTarget) {
         case col1:
-            console.log(col1)
+            console.log(col1.children[columnCounter[0]])
+            displayDisk(createDisk(), col1.children[columnCounter[0]])
+            columnCounter[0]--
             break;
         case col2:
-            console.log(col2)
+            console.log(col2.children[columnCounter[1]])
+            displayDisk(createDisk(), col2.children[columnCounter[1]])
+            columnCounter[1]--
             break;
         case col3:
-            console.log(col3)
+            console.log(col3.children[columnCounter[2]])
+            displayDisk(createDisk(), col3.children[columnCounter[2]])
+            columnCounter[2]--
             break;
         case col4:
             console.log(col4)
+            displayDisk(createDisk(), col4)
             break;
         case col5:
             console.log(col5)
+            displayDisk(createDisk(), col5)
             break;
         case col6:
             console.log(col6)
+            displayDisk(createDisk(), col6)
             break;
         case col7:
             console.log(col7)
+            displayDisk(createDisk(), col7)
             break;
     }
     turnCounter++
