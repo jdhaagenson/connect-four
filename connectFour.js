@@ -95,20 +95,20 @@ const addDiskToColumn = (event) => {
             columnCounter[2]--
             break;
         case col4:
-            console.log(col4)
-            displayDisk(createDisk(), col4)
+            console.log(col4.children[columnCounter[3]])
+            displayDisk(createDisk(), col4.children[columnCounter[3]])
             break;
         case col5:
-            console.log(col5)
-            displayDisk(createDisk(), col5)
+            console.log(col5.children[columnCounter[4]])
+            displayDisk(createDisk(), col5.children[columnCounter[4]])
             break;
         case col6:
-            console.log(col6)
-            displayDisk(createDisk(), col6)
+            console.log(col6.children[columnCounter[5]])
+            displayDisk(createDisk(), col6.children[columnCounter[5]])
             break;
         case col7:
-            console.log(col7)
-            displayDisk(createDisk(), col7)
+            console.log(col7.children[columnCounter[6]])
+            displayDisk(createDisk(), col7.children[columnCounter[6]])
             break;
     }
     turnCounter++
