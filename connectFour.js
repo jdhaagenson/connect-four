@@ -72,10 +72,29 @@ const createDisk = function() {
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
         console.log(event.currentTarget.id)
-
+    }
     switch (event.currentTarget) {
         case col1:
-    }
+            console.log(col1)
+            break;
+        case col2:
+            console.log(col2)
+            break;
+        case col3:
+            console.log(col3)
+            break;
+        case col4:
+            console.log(col4)
+            break;
+        case col5:
+            console.log(col5)
+            break;
+        case col6:
+            console.log(col6)
+            break;
+        case col7:
+            console.log(col7)
+            break;
     }
     turnCounter++
 
@@ -87,14 +106,4 @@ col4.addEventListener('click', addDiskToColumn)
 col5.addEventListener('click', addDiskToColumn)
 col6.addEventListener('click', addDiskToColumn)
 col7.addEventListener('click', addDiskToColumn)
-
-
-
-//win conditions:
-
-//vertical win:
-
-//horizontal win:
-
-//diagonal win:
 
