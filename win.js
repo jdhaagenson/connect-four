@@ -95,13 +95,28 @@ function winTie() {
         columnIndex++;
     }
 
-
+function createWin(message) {
+    let winMessage = document.createElement('div')
+    let page = document.getElementById('container')
+    winMessage.innerText = message
+    page.appendChild(winMessage)
+    return winMessage
+}
 
 function winNotify() {
-    if (currentPlayer == 'red'){
-        let win = "BLACK WINS!";
-    } else if (currentPlayer == 'black'){
-        let win = "RED WINS!";
+    switch(currentPlayer) {
+        case 'red':
+            let win = "RED WINS!"
+            createWin(win)
+            break;
+        case 'black':
+            let win = "BLACK WINS!"
+            createWin(win)
+            break;
+        case 'default':
+            let win = "Win was accidentally triggered"
+            createWin(win)
+            break;
     }
     location.reload();
 }
