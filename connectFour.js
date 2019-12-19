@@ -81,50 +81,58 @@ const addDiskToColumn = (event) => {
     switch (event.currentTarget) {
         case col1:
             console.log(col1.children[columnCounter[0]])
+            currentColumn = 0
             displayDisk(createDisk(), col1.children[columnCounter[0]])
-            columnCounter[0]--
-            checkForWin()
+            columnCounter[currentColumn]--
+            // turnCounter++
             break;
         case col2:
             console.log(col2.children[columnCounter[1]])
+            currentColumn = 1
             displayDisk(createDisk(), col2.children[columnCounter[1]])
-            columnCounter[1]--
-            checkForWin()
+            columnCounter[currentColumn]--
+            // turnCounter++
             break;
         case col3:
             console.log(col3.children[columnCounter[2]])
+            currentColumn = 2
             displayDisk(createDisk(), col3.children[columnCounter[2]])
-            columnCounter[2]--
-            checkForWin()
+            columnCounter[currentColumn]--
+            // turnCounter++
             break;
         case col4:
             console.log(col4.children[columnCounter[3]])
+            currentColumn = 3
             displayDisk(createDisk(), col4.children[columnCounter[3]])
             columnCounter[3]--
-            checkForWin()
+            // turnCounter++
             break;
         case col5:
             console.log(col5.children[columnCounter[4]])
+            currentColumn = 4
             displayDisk(createDisk(), col5.children[columnCounter[4]])
             columnCounter[4]--
-            checkForWin()
+            // turnCounter++
             break;
         case col6:
             console.log(col6.children[columnCounter[5]])
             displayDisk(createDisk(), col6.children[columnCounter[5]])
             columnCounter[5]--
-            checkForWin()
+            // turnCounter++
             break;
         case col7:
             console.log(col7.children[columnCounter[6]])
             displayDisk(createDisk(), col7.children[columnCounter[6]])
             columnCounter[6]--
-            checkForWin()
+            // turnCounter++
             break;
     }
     turnCounter++
-
+    console.log(turnCounter)
 }
+
+// function addDiskToModel()
+
 col1.addEventListener('click', addDiskToColumn)
 col2.addEventListener('click', addDiskToColumn)
 col3.addEventListener('click', addDiskToColumn)

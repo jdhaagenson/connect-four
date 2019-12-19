@@ -106,25 +106,24 @@ function notify(message) {
 function notifyWin() {
     switch(currentPlayer) {
         case 'red':
-            let win = "RED WINS!"
-            notify(win)
+            let redWin = "RED WINS!"
+            notify(redWin)
             break;
         case 'black':
-            let win = "BLACK WINS!"
-            notify(win)
-            break;
-        case 'default':
-            let win = "Win was accidentally triggered"
-            notify(win)
+            let blackWin = "BLACK WINS!"
+            notify(blackWin)
             break;
     }
-    location.reload();
 }
 function notifyTie() {
     let notification = "It's a Tie! Try Again."
     notify(notification)
 }
-
+function conditionCheck(cond) {
+    if (conditional == null) {
+        notifyWin()
+    }
+}
 function checkForWin() {
     // console.log("Running checkForWin");
     winColumn();
