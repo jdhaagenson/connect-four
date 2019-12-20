@@ -130,17 +130,20 @@ function notifyTie() {
 
 const winConditions = (board, piece) => {
     if (winningMoveHorizontal(board, piece) === true) {
+        console.log("win horizontal")
         notifyWin()
     } else if (winningMoveVertical(board, piece) === true) {
+        console.log("win vertical")
         notifyWin()
     } else if (winningMovePosDiagonal(board, piece) === true) {
+        console.log("win diagonal positive")
         notifyWin()
     } else if (winningMoveNegDiagonal(board, piece) === true) {
+        console.log("win diagonal negative")
         notifyWin()
     } else if (turnCounter === 41) {
         notifyTie()
     }
-    return
 }
 
 
