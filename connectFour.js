@@ -105,7 +105,7 @@ const winningMoveVertical = () => {
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
-                winVert.innerHTML = currentPlayer + "Wins!"
+                winVert.innerHTML = currentPlayer + " Wins!"
                 container.appendChild(winVert)
             }
         }
@@ -121,7 +121,7 @@ const winningMovePosDiagonal = () => {
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
-                winVert.innerHTML = currentPlayer + "Wins!"
+                winVert.innerHTML = currentPlayer + " Wins!"
                 container.appendChild(winVert)
             }
         }
@@ -136,7 +136,7 @@ const winningMoveNegDiagonal = () => {
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
-                winVert.innerHTML = currentPlayer + "Wins!"
+                winVert.innerHTML = currentPlayer + " Wins!"
                 container.appendChild(winVert)
             }
         }
