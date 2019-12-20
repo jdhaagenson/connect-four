@@ -39,18 +39,11 @@ connectFour = [
 
 ]
 
-<<<<<<< HEAD
-
-playerBlack = "B"
-playerRed = "R"
-selected = null
-=======
 let playerBlack = "black"
 let playerRed = "red"
 let currentPlayer = playerBlack
 let currentColumn = null
 
->>>>>>> 70e75686940128f083537a6c4823a70b302dd127
 //click handler:
 let col1 = document.getElementById('1')
 let col2 = document.getElementById('2')
@@ -71,10 +64,10 @@ const displayDisk = function(child, parent) {
 const createDisk = function() {
     let top = document.createElement('div')
     top.classList.add('row')
-    if (turnCounter%2===0) { //even
+    if (turnCounter%2==0) { //even
         currentPlayer = playerBlack
         top.classList.add('black')
-    } else if (turnCounter%2!==0) { //odd
+    } else if (turnCounter%2!=0) { //odd
         currentPlayer = playerRed
         top.classList.add('red')
     }
