@@ -100,7 +100,7 @@ const winningMoveHorizontal = () => {
 
 const winningMoveVertical = () => {
     for (let col=0; col<columnCount; col++) {
-        for (let row=0; row<rowCount; row++) {
+        for (let row=0; row<rowCount-3; row++) {
             if (connectFour[row][col] ==currentPlayer && connectFour[row+1][col]==currentPlayer && connectFour[row+2][col]==currentPlayer && connectFour[row+3][col]==currentPlayer) {
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
@@ -113,9 +113,11 @@ const winningMoveVertical = () => {
 }
 
 const winningMovePosDiagonal = () => {
-    for (let col=0; col<columnCount; col++) {
-        for (let row=0; row<rowCount; row++) {
-            if (connectFour[row][col]==currentPlayer && connectFour[row+1][col+1]==currentPlayer && connectFour[row+1][col+2]==currentPlayer && connectFour[row+3][col+3]==currentPlayer) {
+    for (let col=columnCount; col > 3; col--) {
+        for (let row=0; row<rowCount-3; row++) {
+            // console.log(connectFour[row][col],connectFour[row+1][col-1],connectFour[row+2][col-2],connectFour[row+3][col-3])
+            if (connectFour[row][col]==currentPlayer && connectFour[row+1][col-1]==currentPlayer && connectFour[row+2][col-2]==currentPlayer && connectFour[row+3][col-3]==currentPlayer) {
+                console.log('test')
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
@@ -127,9 +129,10 @@ const winningMovePosDiagonal = () => {
 }
 
 const winningMoveNegDiagonal = () => {
-    for (let col=0; col<columnCount; col++) {
-        for (let row=0; row<rowCount; row++) {
-            if (connectFour[row][col] ==currentPlayer && connectFour[row-1][col+1]==currentPlayer && connectFour[row-2][col+2]==currentPlayer && connectFour[row-3][col+3]==currentPlayer) {
+    for (let col=0; col<columnCount-3; col++) {
+        for (let row=0; row<rowCount-3; row++) {
+            console.log(connectFour[row][col],connectFour[row+1][col+1],connectFour[row+2][col+2],connectFour[row+3][col+3])
+            if (connectFour[row][col] ==currentPlayer && connectFour[row+1][col+1]==currentPlayer && connectFour[row+2][col+2]==currentPlayer && connectFour[row+3][col+3]==currentPlayer) {
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
@@ -155,6 +158,7 @@ const addDiskToColumn = (event) => {
             displayDisk(createDisk(), col1.children[columnCounter[0]])
             connectFour[columnCounter[0]][0] = currentPlayer
             columnCounter[currentColumn]--
+            
             break;
             case col2:
                 console.log(col2.children[columnCounter[1]])
@@ -199,6 +203,7 @@ const addDiskToColumn = (event) => {
         }
         turnCounter++
         console.log(turnCounter)
+        console.log(connectFour)
         winningMoveHorizontal()
         winningMoveVertical()
         winningMovePosDiagonal()
