@@ -30,12 +30,12 @@
 
 //create array to represent the board/:
 connectFour = [
-    ['','','','','','',''],
-    ['','','','','','',''],
-    ['','','','','','',''],
-    ['','','','','','',''],
-    ['','','','','','',''],
-    ['','','','','','',''],
+    [' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' '],
+    [' ',' ',' ',' ',' ',' ',' '],
 
 ]
 const columnCount = 7
@@ -84,97 +84,64 @@ const createDisk = function() {
     return top
 }
 
-
-
-const winningMoveHorizontal = (board, piece) => {
-    for (let col=0; col<=columnCount-3; col++) {
-        for (let row=0; row<=rowCount; row++) {
-            if (board[row][col] ==piece && board[row][col+1]==piece && board[row][col+2]==piece && board[row][col+3]==piece) {
-                return true
-            } else {
-                return false
+const winningMoveHorizontal = () => {
+    for (let col=0; col<columnCount; col++) {
+        for (let row=0; row<rowCount; row++) {
+            if (connectFour[row][col] ==currentPlayer && connectFour[row][col+1]==currentPlayer && connectFour[row][col+2]==currentPlayer && connectFour[row][col+3]==currentPlayer) {
+                let winVert = document.createElement('div')
+                winVert.classList.add('winner')
+                let container = document.getElementById('container')
+                winVert.innerHTML = currentPlayer + "Wins!"
+                container.appendChild(winVert)
             }
         }
     }
 }
 
-const winningMoveVertical = (board, piece) => {
-    for (let col=0; col<=columnCount; col++) {
-        for (let row=0; row<=rowCount-3; row++) {
-            if (board[row][col] ==piece && board[row+1][col]==piece && board[row+2][col]==piece && board[row+3][col]==piece) {
-                return true
-            } else {
-                return false
+const winningMoveVertical = () => {
+    for (let col=0; col<columnCount; col++) {
+        for (let row=0; row<rowCount; row++) {
+            if (connectFour[row][col] ==currentPlayer && connectFour[row+1][col]==currentPlayer && connectFour[row+2][col]==currentPlayer && connectFour[row+3][col]==currentPlayer) {
+                let winVert = document.createElement('div')
+                winVert.classList.add('winner')
+                let container = document.getElementById('container')
+                winVert.innerHTML = currentPlayer + "Wins!"
+                container.appendChild(winVert)
             }
         }
     }
 }
 
-const winningMovePosDiagonal = (board, piece) => {
-    for (let col=0; col<=columnCount-3; col++) {
-        for (let row=0; row<=rowCount-3; row++) {
-            if (board[row][col] ==piece && board[row+1][col+1]==piece && board[row+1][col+2]==piece && board[row+3][col+3]==piece) {
-                return true
-            } else {
-                return false
+const winningMovePosDiagonal = () => {
+    for (let col=0; col<columnCount; col++) {
+        for (let row=0; row<rowCount; row++) {
+            if (connectFour[row][col]==currentPlayer && connectFour[row+1][col+1]==currentPlayer && connectFour[row+1][col+2]==currentPlayer && connectFour[row+3][col+3]==currentPlayer) {
+                let winVert = document.createElement('div')
+                winVert.classList.add('winner')
+                let container = document.getElementById('container')
+                winVert.innerHTML = currentPlayer + "Wins!"
+                container.appendChild(winVert)
             }
         }
     }
 }
 
-const winningMoveNegDiagonal = (board, piece) => {
-    for (let col=0; col<=columnCount-3; col++) {
-        for (let row=3; row<=rowCount; row++) {
-            if (board[row][col] ==piece && board[row-1][col+1]==piece && board[row-2][col+2]==piece && board[row-3][col+3]==piece) {
-                return true
-            } else {
-                return false
+const winningMoveNegDiagonal = () => {
+    for (let col=0; col<columnCount; col++) {
+        for (let row=0; row<rowCount; row++) {
+            if (connectFour[row][col] ==currentPlayer && connectFour[row-1][col+1]==currentPlayer && connectFour[row-2][col+2]==currentPlayer && connectFour[row-3][col+3]==currentPlayer) {
+                let winVert = document.createElement('div')
+                winVert.classList.add('winner')
+                let container = document.getElementById('container')
+                winVert.innerHTML = currentPlayer + "Wins!"
+                container.appendChild(winVert)
             }
         }
     }
 }
-function notify(message) {
-    let endMessage = document.createElement('div')
-    let page = document.getElementById('container')
-    endMessage.innerText = message
-    page.appendChild(endMessage)
-    return endMessage
-}
 
-function notifyWin() {
-    switch(currentPlayer) {
-        case 'R':
-            let redWin = "RED WINS!"
-            notify(redWin)
-            break;
-        case 'B':
-            let blackWin = "BLACK WINS!"
-            notify(blackWin)
-            break;
-    }
-}
-function notifyTie() {
-    let notification = "It's a Tie! Try Again."
-    notify(notification)
-}
 
-const winConditions = (board, piece) => {
-    if (winningMoveHorizontal(board, piece) === true) {
-        console.log("win horizontal")
-        notifyWin()
-    } else if (winningMoveVertical(board, piece) === true) {
-        console.log("win vertical")
-        notifyWin()
-    } else if (winningMovePosDiagonal(board, piece) === true) {
-        console.log("win diagonal positive")
-        notifyWin()
-    } else if (winningMoveNegDiagonal(board, piece) === true) {
-        console.log("win diagonal negative")
-        notifyWin()
-    } else if (turnCounter === 41) {
-        notifyTie()
-    }
-}
+
 
 
 const addDiskToColumn = (event) => {
@@ -188,32 +155,26 @@ const addDiskToColumn = (event) => {
             displayDisk(createDisk(), col1.children[columnCounter[0]])
             connectFour[columnCounter[0]][0] = currentPlayer
             columnCounter[currentColumn]--
-
-            // turnCounter++
             break;
-        case col2:
-            console.log(col2.children[columnCounter[1]])
-            currentColumn = 1
-            displayDisk(createDisk(), col2.children[columnCounter[1]])
+            case col2:
+                console.log(col2.children[columnCounter[1]])
+                currentColumn = 1
+                displayDisk(createDisk(), col2.children[columnCounter[1]])
             connectFour[columnCounter[1]][1] = currentPlayer
             columnCounter[currentColumn]--
-            // turnCounter++
             break;
         case col3:
             console.log(col3.children[columnCounter[2]])
             currentColumn = 2
             displayDisk(createDisk(), col3.children[columnCounter[2]])
             connectFour[columnCounter[2]][2] = currentPlayer
-            winConditions(connectFour, currentPlayer)
             columnCounter[currentColumn]--
-            // turnCounter++
             break;
         case col4:
             console.log(col4.children[columnCounter[3]])
             currentColumn = 3
             displayDisk(createDisk(), col4.children[columnCounter[3]])
             connectFour[columnCounter[3]][3] = currentPlayer
-            winConditions(connectFour, currentPlayer)
             columnCounter[3]--
             break;
         case col5:
@@ -221,27 +182,29 @@ const addDiskToColumn = (event) => {
             currentColumn = 4
             displayDisk(createDisk(), col5.children[columnCounter[4]])
             connectFour[columnCounter[4]][4] = currentPlayer
-            winConditions(connectFour, currentPlayer)
             columnCounter[4]--
             break;
-        case col6:
+            case col6:
             console.log(col6.children[columnCounter[5]])
             displayDisk(createDisk(), col6.children[columnCounter[5]])
             connectFour[columnCounter[5]][5] = currentPlayer
-            winConditions(connectFour, currentPlayer)
             columnCounter[5]--
             break;
         case col7:
             console.log(col7.children[columnCounter[6]])
             displayDisk(createDisk(), col7.children[columnCounter[6]])
             connectFour[columnCounter[6]][6] = currentPlayer
-            winConditions(connectFour, currentPlayer)
             columnCounter[6]--
             break;
-    }
+        }
+    winningMoveHorizontal(connectFour, currentPlayer)
+    winningMoveVertical(connectFour, currentPlayer)
+    winningMovePosDiagonal(connectFour, currentPlayer)
+    winningMoveNegDiagonal(connectFour, currentPlayer)
     turnCounter++
     console.log(turnCounter)
 }
+
 
 col1.addEventListener('click', addDiskToColumn)
 col2.addEventListener('click', addDiskToColumn)
