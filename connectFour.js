@@ -197,12 +197,12 @@ const addDiskToColumn = (event) => {
             columnCounter[6]--
             break;
         }
-    winningMoveHorizontal(connectFour, currentPlayer)
-    winningMoveVertical(connectFour, currentPlayer)
-    winningMovePosDiagonal(connectFour, currentPlayer)
-    winningMoveNegDiagonal(connectFour, currentPlayer)
-    turnCounter++
-    console.log(turnCounter)
+        turnCounter++
+        console.log(turnCounter)
+        winningMoveHorizontal()
+        winningMoveVertical()
+        winningMovePosDiagonal()
+        winningMoveNegDiagonal()
 }
 
 
