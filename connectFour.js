@@ -59,7 +59,7 @@ const createDisk = function() {
 const winningMoveHorizontal = (board, piece) => {
     for (let col=0; col<=columnCount-3; col++) {
         for (let row=0; row<=rowCount; row++) {
-            if (board[r][c] ==piece && board[r][c+1]==piece && board[r][c+2]==piece && board[r][c+3]==piece) {
+            if (board[row][col] ==piece && board[row][col+1]==piece && board[row][col+2]==piece && board[row][col+3]==piece) {
                 return true
             } else {
                 return false
@@ -71,7 +71,7 @@ const winningMoveHorizontal = (board, piece) => {
 const winningMoveVertical = (board, piece) => {
     for (let col=0; col<=columnCount; col++) {
         for (let row=0; row<=rowCount-3; row++) {
-            if (board[r][c] ==piece && board[r+1][c]==piece && board[r+2][c]==piece && board[r+3][c]==piece) {
+            if (board[row][col] ==piece && board[row+1][col]==piece && board[row+2][col]==piece && board[row+3][col]==piece) {
                 return true
             } else {
                 return false
@@ -83,7 +83,7 @@ const winningMoveVertical = (board, piece) => {
 const winningMovePosDiagonal = (board, piece) => {
     for (let col=0; col<=columnCount-3; col++) {
         for (let row=0; row<=rowCount-3; row++) {
-            if (board[r][c] ==piece && board[r+1][c+1]==piece && board[r+1][c+2]==piece && board[r+3][c+3]==piece) {
+            if (board[row][col] ==piece && board[row+1][col+1]==piece && board[row+1][col+2]==piece && board[row+3][col+3]==piece) {
                 return true
             } else {
                 return false
@@ -95,7 +95,7 @@ const winningMovePosDiagonal = (board, piece) => {
 const winningMoveNegDiagonal = (board, piece) => {
     for (let col=0; col<=columnCount-3; col++) {
         for (let row=3; row<=rowCount; row++) {
-            if (board[r][c] ==piece && board[r-1][c+1]==piece && board[r-2][c+2]==piece && board[r-3][c+3]==piece) {
+            if (board[row][col] ==piece && board[row-1][col+1]==piece && board[row-2][col+2]==piece && board[row-3][col+3]==piece) {
                 return true
             } else {
                 return false
@@ -103,9 +103,44 @@ const winningMoveNegDiagonal = (board, piece) => {
         }
     }
 }
+function notify(message) {
+    let endMessage = document.createElement('div')
+    let page = document.getElementById('container')
+    endMessage.innerText = message
+    page.appendChild(endMessage)
+    return endMessage
+}
+
+function notifyWin() {
+    switch(currentPlayer) {
+        case 'R':
+            let redWin = "RED WINS!"
+            notify(redWin)
+            break;
+        case 'B':
+            let blackWin = "BLACK WINS!"
+            notify(blackWin)
+            break;
+    }
+}
+function notifyTie() {
+    let notification = "It's a Tie! Try Again."
+    notify(notification)
+}
 
 const winConditions = (board, piece) => {
-    console.assert((typeof winningMoveHorizontal(board, piece)==='boolean'), "does not return boolean")
+    if (winningMoveHorizontal(board, piece) === true) {
+        notifyWin()
+    } else if (winningMoveVertical(board, piece) === true) {
+        notifyWin()
+    } else if (winningMovePosDiagonal(board, piece) === true) {
+        notifyWin()
+    } else if (winningMoveNegDiagonal(board, piece) === true) {
+        notifyWin()
+    } else if (turnCounter === 41) {
+        notifyTie()
+    }
+    return
 }
 
 
