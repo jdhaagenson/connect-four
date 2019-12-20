@@ -94,6 +94,7 @@ function winTie() {
         }
         columnIndex++;
     }
+}
 
 function notify(message) {
     let endMessage = document.createElement('div')
@@ -139,4 +140,4 @@ function checkForWin() {
 
     }
 }
-}
+

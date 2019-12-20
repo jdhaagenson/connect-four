@@ -19,7 +19,7 @@ body {
 }
 .column:hover{
    border-color:#32CD32;
-   
+
 }
 
 .row {
@@ -31,13 +31,6 @@ body {
     width: 100px;
 }
 h1{
-<<<<<<< HEAD
-    color: rgb(255, 0, 0);
-    background-color: rgb(6, 82, 6);
-    width: 200px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-=======
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: limegreen ;
 }
@@ -103,4 +96,3 @@ h2{
       transform: translateY(0);
     }
   }
->>>>>>> 70e75686940128f083537a6c4823a70b302dd127

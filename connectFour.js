@@ -81,7 +81,6 @@ const createDisk = function() {
     }
     return top
 }
-// const addToModel = function()
 
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
@@ -94,6 +93,7 @@ const addDiskToColumn = (event) => {
             displayDisk(createDisk(), col1.children[columnCounter[0]])
             connectFour[columnCounter[0]][0] = currentPlayer
             columnCounter[currentColumn]--
+
             // turnCounter++
             break;
         case col2:
@@ -147,9 +147,6 @@ const addDiskToColumn = (event) => {
     console.log(turnCounter)
 }
 
-
-
-
 col1.addEventListener('click', addDiskToColumn)
 col2.addEventListener('click', addDiskToColumn)
 col3.addEventListener('click', addDiskToColumn)
@@ -158,3 +155,17 @@ col5.addEventListener('click', addDiskToColumn)
 col6.addEventListener('click', addDiskToColumn)
 col7.addEventListener('click', addDiskToColumn)
 
+const winningMove(board, piece) {
+    //horizontal in python
+    //for c in range(columnCount-3):
+    //for r in range(rowCount):
+    // if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3]==piece:
+    // return True
+
+    //vertical locations can start in the bottom 4
+    //for c in range(columnCount):
+    //for r in range(rowCount-3):
+    //if board[r][c] == piece and board[r+1][c] ==piece and board[r+2][c]==piece and board[r+3][c]==piece
+    //loop over all columns minus 3 that couldn't start 4 in a row
+    //loop over rows
+}
