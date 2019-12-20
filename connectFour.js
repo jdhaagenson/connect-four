@@ -38,6 +38,8 @@ connectFour = [
     ['','','','','','',''],
 
 ]
+const columnCount = 7
+const rowCount = 6
 
 let playerBlack = "B"
 let playerRed = "R"
@@ -82,6 +84,61 @@ const createDisk = function() {
     return top
 }
 
+
+
+const winningMoveHorizontal = (board, piece) => {
+    for (let col=0; col<=columnCount-3; col++) {
+        for (let row=0; row<=rowCount; row++) {
+            if (board[r][c] ==piece && board[r][c+1]==piece && board[r][c+2]==piece && board[r][c+3]==piece) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+}
+
+const winningMoveVertical = (board, piece) => {
+    for (let col=0; col<=columnCount; col++) {
+        for (let row=0; row<=rowCount-3; row++) {
+            if (board[r][c] ==piece && board[r+1][c]==piece && board[r+2][c]==piece && board[r+3][c]==piece) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+}
+
+const winningMovePosDiagonal = (board, piece) => {
+    for (let col=0; col<=columnCount-3; col++) {
+        for (let row=0; row<=rowCount-3; row++) {
+            if (board[r][c] ==piece && board[r+1][c+1]==piece && board[r+1][c+2]==piece && board[r+3][c+3]==piece) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+}
+
+const winningMoveNegDiagonal = (board, piece) => {
+    for (let col=0; col<=columnCount-3; col++) {
+        for (let row=3; row<=rowCount; row++) {
+            if (board[r][c] ==piece && board[r-1][c+1]==piece && board[r-2][c+2]==piece && board[r-3][c+3]==piece) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+}
+
+const winConditions = (board, piece) => {
+    console.assert((typeof winningMoveHorizontal(board, piece)==='boolean'), "does not return boolean")
+}
+
+
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
         console.log(event)
@@ -109,6 +166,7 @@ const addDiskToColumn = (event) => {
             currentColumn = 2
             displayDisk(createDisk(), col3.children[columnCounter[2]])
             connectFour[columnCounter[2]][2] = currentPlayer
+            winConditions(connectFour, currentPlayer)
             columnCounter[currentColumn]--
             // turnCounter++
             break;
@@ -117,30 +175,30 @@ const addDiskToColumn = (event) => {
             currentColumn = 3
             displayDisk(createDisk(), col4.children[columnCounter[3]])
             connectFour[columnCounter[3]][3] = currentPlayer
+            winConditions(connectFour, currentPlayer)
             columnCounter[3]--
-            // turnCounter++
             break;
         case col5:
             console.log(col5.children[columnCounter[4]])
             currentColumn = 4
             displayDisk(createDisk(), col5.children[columnCounter[4]])
             connectFour[columnCounter[4]][4] = currentPlayer
+            winConditions(connectFour, currentPlayer)
             columnCounter[4]--
-            // turnCounter++
             break;
         case col6:
             console.log(col6.children[columnCounter[5]])
             displayDisk(createDisk(), col6.children[columnCounter[5]])
             connectFour[columnCounter[5]][5] = currentPlayer
+            winConditions(connectFour, currentPlayer)
             columnCounter[5]--
-            // turnCounter++
             break;
         case col7:
             console.log(col7.children[columnCounter[6]])
             displayDisk(createDisk(), col7.children[columnCounter[6]])
             connectFour[columnCounter[6]][6] = currentPlayer
+            winConditions(connectFour, currentPlayer)
             columnCounter[6]--
-            // turnCounter++
             break;
     }
     turnCounter++
@@ -154,18 +212,3 @@ col4.addEventListener('click', addDiskToColumn)
 col5.addEventListener('click', addDiskToColumn)
 col6.addEventListener('click', addDiskToColumn)
 col7.addEventListener('click', addDiskToColumn)
-
-const winningMove(board, piece) {
-    //horizontal in python
-    //for c in range(columnCount-3):
-    //for r in range(rowCount):
-    // if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3]==piece:
-    // return True
-
-    //vertical locations can start in the bottom 4
-    //for c in range(columnCount):
-    //for r in range(rowCount-3):
-    //if board[r][c] == piece and board[r+1][c] ==piece and board[r+2][c]==piece and board[r+3][c]==piece
-    //loop over all columns minus 3 that couldn't start 4 in a row
-    //loop over rows
-}
