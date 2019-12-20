@@ -39,6 +39,7 @@ connectFour = [
 
 ]
 
+
 playerBlack = "B"
 playerRed = "R"
 selected = null
