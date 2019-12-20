@@ -39,19 +39,27 @@ connectFour = [
 
 ]
 
-let playerBlack = "black"
-let playerRed = "red"
+let playerBlack = "B"
+let playerRed = "R"
 let currentPlayer = playerBlack
 let currentColumn = null
 
 //click handler:
 let col1 = document.getElementById('1')
+// col1.index = 0
 let col2 = document.getElementById('2')
+// col2.index = 1
 let col3 = document.getElementById('3')
+// col3.index = 2
 let col4 = document.getElementById('4')
+// col4.index = 3
 let col5 = document.getElementById('5')
+// col5.index = 4
 let col6 = document.getElementById('6')
+// col6.index = 5
 let col7 = document.getElementById('7')
+// col7.index = 6
+
 
 // turns: black on even values of turnCounter, and red on odd values of turnCounter
 let turnCounter = 0
@@ -73,6 +81,7 @@ const createDisk = function() {
     }
     return top
 }
+// const addToModel = function()
 
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
@@ -83,6 +92,7 @@ const addDiskToColumn = (event) => {
             console.log(col1.children[columnCounter[0]])
             currentColumn = 0
             displayDisk(createDisk(), col1.children[columnCounter[0]])
+            connectFour[columnCounter[0]][0] = currentPlayer
             columnCounter[currentColumn]--
             // turnCounter++
             break;
@@ -90,6 +100,7 @@ const addDiskToColumn = (event) => {
             console.log(col2.children[columnCounter[1]])
             currentColumn = 1
             displayDisk(createDisk(), col2.children[columnCounter[1]])
+            connectFour[columnCounter[1]][1] = currentPlayer
             columnCounter[currentColumn]--
             // turnCounter++
             break;
@@ -97,6 +108,7 @@ const addDiskToColumn = (event) => {
             console.log(col3.children[columnCounter[2]])
             currentColumn = 2
             displayDisk(createDisk(), col3.children[columnCounter[2]])
+            connectFour[columnCounter[2]][2] = currentPlayer
             columnCounter[currentColumn]--
             // turnCounter++
             break;
@@ -104,6 +116,7 @@ const addDiskToColumn = (event) => {
             console.log(col4.children[columnCounter[3]])
             currentColumn = 3
             displayDisk(createDisk(), col4.children[columnCounter[3]])
+            connectFour[columnCounter[3]][3] = currentPlayer
             columnCounter[3]--
             // turnCounter++
             break;
@@ -111,18 +124,21 @@ const addDiskToColumn = (event) => {
             console.log(col5.children[columnCounter[4]])
             currentColumn = 4
             displayDisk(createDisk(), col5.children[columnCounter[4]])
+            connectFour[columnCounter[4]][4] = currentPlayer
             columnCounter[4]--
             // turnCounter++
             break;
         case col6:
             console.log(col6.children[columnCounter[5]])
             displayDisk(createDisk(), col6.children[columnCounter[5]])
+            connectFour[columnCounter[5]][5] = currentPlayer
             columnCounter[5]--
             // turnCounter++
             break;
         case col7:
             console.log(col7.children[columnCounter[6]])
             displayDisk(createDisk(), col7.children[columnCounter[6]])
+            connectFour[columnCounter[6]][6] = currentPlayer
             columnCounter[6]--
             // turnCounter++
             break;
@@ -131,7 +147,8 @@ const addDiskToColumn = (event) => {
     console.log(turnCounter)
 }
 
-// function addDiskToModel()
+
+
 
 col1.addEventListener('click', addDiskToColumn)
 col2.addEventListener('click', addDiskToColumn)

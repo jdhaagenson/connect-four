@@ -9,7 +9,7 @@ function winColumn() {
     rowIndex = 0;
     winCount = 0;
     while (rowIndex < 7) {
-        if (gridArray[columnIndex][rowIndex] == currentPlayer) {
+        if (connectFour[columnIndex][rowIndex] == currentPlayer) {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
@@ -26,7 +26,7 @@ function winRow() {
     rowIndex = currentColumn.childElementCount - 1;
     winCount = 0;
     while (columnIndex < 7) {
-        if (gridArray[columnIndex][rowIndex] == currentPlayer) {
+        if (connectFour[columnIndex][rowIndex] == currentPlayer) {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
@@ -47,7 +47,7 @@ function winDiagonalRight() {
         rowIndex--;
     }
     while (columnIndex >= 0 && rowIndex >= 0 && columnIndex < 7 && rowIndex < 6) {
-        if (gridArray[columnIndex][rowIndex] == currentPlayer) {
+        if (connectFour[columnIndex][rowIndex] == currentPlayer) {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
@@ -69,7 +69,7 @@ function winDiagonalLeft() {
         rowIndex--;
     }
     while (columnIndex >= 0 && rowIndex >= 0 && columnIndex < 7 && rowIndex < 6) {
-        if (gridArray[columnIndex][rowIndex] == currentPlayer) {
+        if (connectFour[columnIndex][rowIndex] == currentPlayer) {
             winCount++;
         } else { winCount = 0; }
         if (winCount === 4) {
@@ -86,7 +86,7 @@ function winTie() {
     columnIndex = 0;
     winCount = 0;
     while (columnIndex < 7 && winCount != -1) {
-        if (gridArray[columnIndex][5] != undefined) {
+        if (connectFour[columnIndex][5] != undefined) {
             winCount++;
         } else { winCount = -1; }
         if (winCount === 7) {
@@ -105,11 +105,11 @@ function notify(message) {
 
 function notifyWin() {
     switch(currentPlayer) {
-        case 'red':
+        case 'R':
             let redWin = "RED WINS!"
             notify(redWin)
             break;
-        case 'black':
+        case 'B':
             let blackWin = "BLACK WINS!"
             notify(blackWin)
             break;
@@ -119,11 +119,7 @@ function notifyTie() {
     let notification = "It's a Tie! Try Again."
     notify(notification)
 }
-function conditionCheck(cond) {
-    if (conditional == null) {
-        notifyWin()
-    }
-}
+
 function checkForWin() {
     // console.log("Running checkForWin");
     winColumn();
