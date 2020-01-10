@@ -100,6 +100,15 @@ h2{
   .winner {
     font-family: 'Mountains of Christmas', cursive;   
     background-color: rgb(58, 71, 58);
-    height: 30px;
-    width: 50px;
+    font-size: 50px;
+    height: 60px;
+    width: 150px;
+  }
+
+  .tie {
+    font-family: 'Mountains of Christmas', cursive;   
+    background-color: rgb(58, 71, 58);
+    font-size: 50px;
+    height: 60px;
+    width: 150px;
   }

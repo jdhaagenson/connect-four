@@ -113,11 +113,11 @@ const winningMoveVertical = () => {
 }
 
 const winningMovePosDiagonal = () => {
-    for (let col=columnCount; col > 3; col--) {
+    for (let col=3; col<columnCount; col++) {
         for (let row=0; row<rowCount-3; row++) {
             // console.log(connectFour[row][col],connectFour[row+1][col-1],connectFour[row+2][col-2],connectFour[row+3][col-3])
             if (connectFour[row][col]==currentPlayer && connectFour[row+1][col-1]==currentPlayer && connectFour[row+2][col-2]==currentPlayer && connectFour[row+3][col-3]==currentPlayer) {
-                console.log('test')
+                // console.log('test')
                 let winVert = document.createElement('div')
                 winVert.classList.add('winner')
                 let container = document.getElementById('container')
@@ -128,6 +128,7 @@ const winningMovePosDiagonal = () => {
     }
 }
 
+// working
 const winningMoveNegDiagonal = () => {
     for (let col=0; col<columnCount-3; col++) {
         for (let row=0; row<rowCount-3; row++) {
@@ -142,6 +143,15 @@ const winningMoveNegDiagonal = () => {
         }
     }
 }
+const tie = () => {
+    if (turnCounter === 42) {
+        let tieGame = document.createElement('div')
+        tieGame.classList.add('tie')
+        let container = document.getElementById('container')
+        tieGame.innerHTML = "Tie!"
+        container.appendChild(tieGame)
+    }
+}
 
 
 
@@ -149,11 +159,11 @@ const winningMoveNegDiagonal = () => {
 
 const addDiskToColumn = (event) => {
     if (currentColumn == null) {
-        console.log(event)
+        // console.log(event)
     }
     switch (event.currentTarget) {
         case col1:
-            console.log(col1.children[columnCounter[0]])
+            // console.log(col1.children[columnCounter[0]])
             currentColumn = 0
             displayDisk(createDisk(), col1.children[columnCounter[0]])
             connectFour[columnCounter[0]][0] = currentPlayer
@@ -161,54 +171,56 @@ const addDiskToColumn = (event) => {
             
             break;
             case col2:
-                console.log(col2.children[columnCounter[1]])
+                // console.log(col2.children[columnCounter[1]])
                 currentColumn = 1
                 displayDisk(createDisk(), col2.children[columnCounter[1]])
-            connectFour[columnCounter[1]][1] = currentPlayer
-            columnCounter[currentColumn]--
-            break;
-        case col3:
-            console.log(col3.children[columnCounter[2]])
-            currentColumn = 2
-            displayDisk(createDisk(), col3.children[columnCounter[2]])
-            connectFour[columnCounter[2]][2] = currentPlayer
-            columnCounter[currentColumn]--
-            break;
-        case col4:
-            console.log(col4.children[columnCounter[3]])
-            currentColumn = 3
-            displayDisk(createDisk(), col4.children[columnCounter[3]])
-            connectFour[columnCounter[3]][3] = currentPlayer
-            columnCounter[3]--
-            break;
-        case col5:
-            console.log(col5.children[columnCounter[4]])
-            currentColumn = 4
-            displayDisk(createDisk(), col5.children[columnCounter[4]])
-            connectFour[columnCounter[4]][4] = currentPlayer
-            columnCounter[4]--
-            break;
-            case col6:
-            console.log(col6.children[columnCounter[5]])
-            displayDisk(createDisk(), col6.children[columnCounter[5]])
-            connectFour[columnCounter[5]][5] = currentPlayer
-            columnCounter[5]--
-            break;
-        case col7:
-            console.log(col7.children[columnCounter[6]])
-            displayDisk(createDisk(), col7.children[columnCounter[6]])
-            connectFour[columnCounter[6]][6] = currentPlayer
-            columnCounter[6]--
-            break;
-        }
-        turnCounter++
-        console.log(turnCounter)
-        console.log(connectFour)
-        winningMoveHorizontal()
-        winningMoveVertical()
-        winningMovePosDiagonal()
-        winningMoveNegDiagonal()
-}
+                connectFour[columnCounter[1]][1] = currentPlayer
+                columnCounter[currentColumn]--
+                break;
+                case col3:
+                    // console.log(col3.children[columnCounter[2]])
+                    currentColumn = 2
+                    displayDisk(createDisk(), col3.children[columnCounter[2]])
+                    connectFour[columnCounter[2]][2] = currentPlayer
+                    columnCounter[currentColumn]--
+                    break;
+                    case col4:
+                        // console.log(col4.children[columnCounter[3]])
+                        currentColumn = 3
+                        displayDisk(createDisk(), col4.children[columnCounter[3]])
+                        connectFour[columnCounter[3]][3] = currentPlayer
+                        columnCounter[3]--
+                        break;
+                        case col5:
+                            // console.log(col5.children[columnCounter[4]])
+                            currentColumn = 4
+                            displayDisk(createDisk(), col5.children[columnCounter[4]])
+                            connectFour[columnCounter[4]][4] = currentPlayer
+                            columnCounter[4]--
+                            break;
+                            case col6:
+                                // console.log(col6.children[columnCounter[5]])
+                                displayDisk(createDisk(), col6.children[columnCounter[5]])
+                                connectFour[columnCounter[5]][5] = currentPlayer
+                                columnCounter[5]--
+                                break;
+                                case col7:
+                                    // console.log(col7.children[columnCounter[6]])
+                                    displayDisk(createDisk(), col7.children[columnCounter[6]])
+                                    connectFour[columnCounter[6]][6] = currentPlayer
+                                    columnCounter[6]--
+                                    break;
+                                }
+                                turnCounter++
+                                // console.log(turnCounter)
+                                // console.log(connectFour)
+                                winningMoveHorizontal()
+                                winningMoveVertical()
+                                winningMovePosDiagonal()
+                                winningMoveNegDiagonal()
+                                tie()
+                                console.log(turnCounter)
+                            }
 
 
 col1.addEventListener('click', addDiskToColumn)

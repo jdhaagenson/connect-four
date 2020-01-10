@@ -81,20 +81,20 @@ function winDiagonalLeft() {
 }
 
 
-function winTie() {
-    // console.log("Running winTie");
-    columnIndex = 0;
-    winCount = 0;
-    while (columnIndex < 7 && winCount != -1) {
-        if (connectFour[columnIndex][5] != undefined) {
-            winCount++;
-        } else { winCount = -1; }
-        if (winCount === 7) {
-            condition = 'tie'
-        }
-        columnIndex++;
-    }
-}
+// function winTie() {
+//     // console.log("Running winTie");
+//     columnIndex = 0;
+//     winCount = 0;
+//     while (columnIndex < 7 && winCount != -1) {
+//         if (connectFour[columnIndex][5] != undefined) {
+//             winCount++;
+//         } else { winCount = -1; }
+//         if (winCount === 7) {
+//             condition = 'tie'
+//         }
+//         columnIndex++;
+//     }
+// }
 
 function notify(message) {
     let endMessage = document.createElement('div')
