@@ -31,13 +31,17 @@ body {
     width: 100px;
 }
 h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: limegreen ;
+    font-family: 'Mountains of Christmas', cursive;
+    color: rgb(216, 0, 61) ;
+    font-size: 60px;
+    margin: 0px;
+    text-shadow: 2px 2px 7px white;
 }
 
 h2{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Mountains of Christmas', cursive;
     font-weight: bold;
+    font-size: 20px;
     background-image: linear-gradient( orange,red);
 }
 
@@ -98,6 +102,7 @@ h2{
   }
 
   .winner {
+<<<<<<< HEAD
     font-family: 'Mountains of Christmas', cursive;   
     background-color: rgb(58, 71, 58);
     font-size: 50px;
@@ -112,3 +117,27 @@ h2{
     height: 60px;
     width: 150px;
   }
+=======
+    font-family: 'Mountains of Christmas', cursive;
+    text-shadow: 1px 1px 5px white;
+    color: red;
+    font-weight: bold;
+    height: 100px;
+    width: 300px;
+    display: flex;
+    position: static;
+    font-size: 75px;
+    justify-content: center;
+  }
+
+#reset {
+  border-color: white;
+  background-image:linear-gradient(rgb(52, 100, 190), rgb(6, 6, 66));
+  font-family: 'Mountains of Christmas';
+  border-radius: 7px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+
+}
+>>>>>>> 6f78125e6a7e2849bf139f5f03729b4c85096fad
